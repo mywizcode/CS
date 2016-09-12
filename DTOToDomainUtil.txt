@@ -1,3 +1,4 @@
+//Enquiry Follow up
 public static EnquiryFollowup populateEnquiryFollowupAddFields(EnquiryFollowupDTO enquiryFollowupDto) {
 	EnquiryFollowup enquiryFollowup = new EnquiryFollowup();
 	enquiryFollowup.Id = enquiryFollowupDto.Id;
@@ -13,8 +14,66 @@ public static void populateEnquiryFollowupUpdateFields(EnquiryFollowup enquiryFo
 	enquiryFollowup.CommunicationMedia = DTOToDomainUtil.convertToMasterControlDataId(enquiryFollowupDto.CommunicationMedia);
 	enquiryFollowup.UpdateDate = DateTime.Now;
 	enquiryFollowup.UpdateUser = enquiryFollowupDto.UpdateUser;
+	enquiryFollowup.Version = enquiryFollowupDto.Version;
+}
+//Firm Member
+public static FirmMember populateFirmMemberAddFields(FirmMemberDTO firmMemberDto) {
+	FirmMember firmMember = new FirmMember();
+	firmMember.Id = firmMemberDto.Id
+	firmMember.FirmNumber = firmMemberDto.FirmNumber;
+	firmMember.InsertUser = firmMemberDto.InsertUser;
+	populateFirmMemberUpdateFields(firmMember, firmMemberDto);
+}
+public static void populateFirmMemberUpdateFields(FirmMember firmMember, FirmMemberDTO firmMemberDto) {
+	firmMember.FirstName = firmMemberDto.FirstName;
+	firmMember.MiddleName = firmMemberDto.MiddleName;
+	firmMember.LastName = firmMemberDto.LastName;
+	firmMember.JoiningDate = firmMemberDto.JoiningDate;
+	firmMember.Dob = firmMemberDto.Dob;
+	firmMember.Qualification = firmMemberDto.Qualification;
+	firmMember.Description = firmMemberDto.Description;
+	DTOToDomainUtil.populateFirmMemberUpdateFields(firmMember.ContactInfo, firmMemberDto.ContactInfo);
+	firmMember.Department = DTOToDomainUtil.convertToDepartmentId(firmMemberDto.Department);
+	firmMember.Salutation = DTOToDomainUtil.convertToMasterControlDataId(firmMemberDto.Salutation);
+	firmMember.Designation = DTOToDomainUtil.convertToMasterControlDataId(firmMemberDto.Designation);
+	firmMember.UpdateDate = DateTime.Now;
+	firmMember.Version = firmMemberDto.Version;
+	firmMember.UpdateUser = firmMemberDto.UpdateUser;
+}
+//Firm Account Deposites
+public static FirmAcntDeposite populateFirmAcntDepositeAddFields(FirmAcntDepositeDTO firmAcntDepositeDto) {
+	FirmAcntDeposite firmAcntDeposite = new FirmAcntDeposite();
+	firmAcntDepositeDto.Id = firmAcntDeposite.Id;
+	firmAcntDepositeDto.DepositeDate = firmAcntDeposite.DepositeDate;
+	firmAcntDepositeDto.Amount = firmAcntDeposite.Amount;
+	firmAcntDepositeDto.PymtMode = firmAcntDeposite.PymtMode;
+	firmAcntDepositeDto.BankName = firmAcntDeposite.BankName;
+	firmAcntDepositeDto.ChequeNo = firmAcntDeposite.ChequeNo;
+	firmAcntDepositeDto.ChequeDate = firmAcntDeposite.ChequeDate;
+	firmAcntDepositeDto.Status = firmAcntDeposite.Status;
+	firmAcntDepositeDto.FirmNumber = firmAcntDeposite.FirmNumber;
+	firmAcntDepositeDto.InsertDate = firmAcntDeposite.InsertDate;
+	firmAcntDepositeDto.InsertUser = firmAcntDeposite.InsertUser;
+	firmAcntDepositeDto.FirmAccount = DTOToDomainUtil.convertToFirmAccountId(firmAcntDeposite.FirmAccount);
+	populateFirmMemberUpdateFields(firmAcntDeposite, firmAcntDepositeDto);
+}
+public static void populateFirmAcntDepositeUpdateFields(irmAcntDeposite firmAcntDeposite, FirmAcntDepositeDTO firmAcntDepositeDto) {
+	firmAcntDepositeDto.Description = firmAcntDeposite.Description;
+	firmAcntDepositeDto.UpdateDate = DateTime.Now;
+	firmAcntDepositeDto.UpdateUser = firmAcntDeposite.UpdateUser;
+	firmAcntDepositeDto.Version = firmAcntDeposite.Version;
 }
 
+
+//FK binding methods
+public static Department convertToDepartmentId(DepartmentDTO departmentDto) {
+	Department department = null;
+	if(departmentDto != null) {
+		department = new Department();
+		department.Id(departmentDto.Id);
+	}
+	return firmMember;
+}
 public static EnquiryDetail convertToEnquiryDetailId(EnquiryDetailDTO enquiryDetailDto) {
 	EnquiryDetail enquiryDetail = null;
 	if(enquiryDetailDto != null) {
