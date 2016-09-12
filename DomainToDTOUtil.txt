@@ -1,0 +1,22 @@
+enquiryFollowupDto.Id = enquiryFollowup.Id;
+enquiryFollowupDto.FollowupDate = enquiryFollowup.FollowupDate;
+enquiryFollowupDto.Comments = enquiryFollowup.Comments;
+enquiryFollowupDto.FirmNumber = enquiryFollowup.FirmNumber;
+enquiryFollowupDto.InsertDate = enquiryFollowup.InsertDate;
+enquiryFollowupDto.UpdateDate = enquiryFollowup.UpdateDate;
+enquiryFollowupDto.Version = enquiryFollowup.Version;
+enquiryFollowupDto.InsertUser = enquiryFollowup.InsertUser;
+enquiryFollowupDto.UpdateUser = enquiryFollowup.UpdateUser;
+enquiryFollowupDto.EnquiryDetail = convertToEnquiryDetailDTOenquiryFollowup.EnquiryDetail;
+enquiryFollowupDto.CommunicationMedia = enquiryFollowup.CommunicationMedia;
+enquiryFollowupDto.FirmMember = enquiryFollowup.FirmMember;
+
+public static FirmMemberDTO convertToEnquiryDetailDTO(FirmMember firmMember, bool allFields) {
+	FirmMemberDTO firmMemberDto = null;
+	if(firmMember != null) {
+		firmMemberDto = new FirmMemberDTO();
+		firmMemberDto.Id = firmMember.Id;
+		firmMemberDto.FirstName
+	}
+}
+

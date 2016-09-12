@@ -1,0 +1,41 @@
+public static EnquiryFollowup populateEnquiryFollowupAddFields(EnquiryFollowupDTO enquiryFollowupDto) {
+	EnquiryFollowup enquiryFollowup = new EnquiryFollowup();
+	enquiryFollowup.Id = enquiryFollowupDto.Id;
+	enquiryFollowup.FollowupDate = enquiryFollowupDto.FollowupDate;
+	enquiryFollowup.FirmNumber = enquiryFollowupDto.FirmNumber;
+	enquiryFollowup.InsertUser = enquiryFollowupDto.InsertUser;
+	enquiryFollowup.EnquiryDetail = DTOToDomainUtil.convertToEnquiryDetailId(enquiryFollowupDto.EnquiryDetail);
+	enquiryFollowup.FirmMember = DTOToDomainUtil.convertToFirmMemberId(enquiryFollowupDto.FirmMember);
+	populateEnquiryFollowupUpdateFields(enquiryFollowup, enquiryFollowupDto);
+}
+public static void populateEnquiryFollowupUpdateFields(EnquiryFollowup enquiryFollowup, EnquiryFollowupDTO enquiryFollowupDto) {
+	enquiryFollowup.Comments = enquiryFollowupDto.Comments;
+	enquiryFollowup.CommunicationMedia = DTOToDomainUtil.convertToMasterControlDataId(enquiryFollowupDto.CommunicationMedia);
+	enquiryFollowup.UpdateDate = DateTime.Now;
+	enquiryFollowup.UpdateUser = enquiryFollowupDto.UpdateUser;
+}
+
+public static EnquiryDetail convertToEnquiryDetailId(EnquiryDetailDTO enquiryDetailDto) {
+	EnquiryDetail enquiryDetail = null;
+	if(enquiryDetailDto != null) {
+		enquiryDetail = new EnquiryDetail();
+		enquiryDetail.Id(enquiryDetailDto.Id);
+	}
+	return enquiryDetail;
+}
+public static FirmMember convertToFirmMemberId(FirmMemberDTO firmMemberDto) {
+	FirmMember firmMember = null;
+	if(firmMemberDto != null) {
+		firmMember = new FirmMember();
+		firmMember.Id(firmMemberDto.Id);
+	}
+	return firmMember;
+}
+public MasterControlData convertToMasterControlDataId(MasterControlDataDTO masterControlDataDto) {
+	MasterControlData masterControlData = null;
+	if(masterControlDataDto != null) {
+		masterControlData = new MasterControlData();
+		masterControlData.Id(masterControlDataDto.Id);
+	}
+	return masterControlData;
+}
