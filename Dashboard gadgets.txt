@@ -1,0 +1,41 @@
+CRM Dashboard
+- Total enquiries per source vs duration -> Use 'Pie chart timeline' on Echarts Library->Pies and donuts page
+	- No of enquiries will be shown per source for a selected month
+- Enquiries new open and Closed vs duration -> Use 'Sales statistics' gadget on Dashboard page
+	- No of new enquiries open and closed per week
+	- Add Date closed in ENQUIRY_DETAIL table
+	- add Date closed in LEAD_DETAIL table
+
+- No of Available/Sold/Reserved Units Per Unit Type for Tower -> Use 'Combination and connection' right side bar chart from Echarts Library->Charts Combinations page
+- Upcoming Agreement and Possession
+- Upcoming Events/Tasks scheduled on Lead/Enquiry - User dashboard
+
+
+
+
+
+Alerts
+- Lead/Enquiry Assignment/Reassignment
+- New unassgined Leads added
+- 
+
+Tasks
+- 
+
+
+
+Document Management
+- Sold/Cancelled Units
+	- Provide row level action 'Manage Documents'
+	- On click of this link navigate to new page 'Manage Documents'
+	
+Manage Sold Unit Documents Page 
+- Show Unit and Customer info in top like Letter Generation
+- Show Below folders to left of the page (vertical -> col-md-3)
+	- Customer Documents
+	- Demand Letters
+	- Other Documents
+- All above folders will be shown in tree structure
+- When folder is selected then show file content in right side
+- 
+	
